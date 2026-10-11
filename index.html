@@ -24,8 +24,8 @@ body{margin:0;background:var(--bg);color:var(--fg);font:var(--fs-md)/1.6 Figtree
 .slide{display:grid;gap:var(--s5);align-items:center;padding:var(--s5) var(--s4) var(--s4);overflow:hidden}
 @media (min-width:860px){.slide{grid-template-columns:1fr 1.1fr;gap:var(--s7);padding:var(--s6) max(var(--s4),calc((100% - 1100px)/2)) var(--s5)}}
 .st{transform:translateX(var(--x,0));opacity:var(--o,1)}
-.sa{display:grid;place-items:end center;aspect-ratio:4/3;border-radius:var(--r3);overflow:hidden;background:var(--sf2);background:color-mix(in srgb,var(--c1) 16%,var(--sf2));transform:translateX(calc(var(--x,0)*-2.5)) scale(var(--s,1));opacity:var(--o,1)}
-.sa img{width:100%;height:100%;object-fit:cover}
+.sa{display:block;border-radius:var(--r3);overflow:hidden;background:var(--sf2);background:color-mix(in srgb,var(--c1) 16%,var(--sf2));transform:translateX(calc(var(--x,0)*-2.5)) scale(var(--s,1));opacity:var(--o,1)}
+.sa img{display:block;width:100%;height:auto}
 .slide h1,.slide h2{margin:var(--s3) 0;font:700 var(--fs-hero)/1.02 var(--fd);letter-spacing:-.04em}
 .slide .st p{margin:0 0 var(--s5);max-width:38ch;color:var(--mut);font-size:var(--fs-lg)}
 .bt{display:flex;gap:var(--s3);flex-wrap:wrap}
@@ -42,12 +42,14 @@ main{max-width:1132px;margin:0 auto;padding:0 var(--s4)}
 .grid{display:grid;gap:var(--s4);grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));padding-bottom:var(--s5)}
 .app{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r3);background:var(--sf);background:color-mix(in srgb,var(--sf) 70%,transparent);overflow:hidden;transition:border-color .2s}
 .app:hover{border-color:var(--mut)}
-.pv{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--sf2);background:color-mix(in srgb,var(--c1) 16%,var(--sf2))}
+.pv{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--sf2);background:color-mix(in srgb,var(--c1) 16%,var(--sf2))}
 .pv svg{position:absolute;left:50%;top:14%;width:56%;height:auto;transform:translateX(-50%)}
-.pv img{width:100%;height:100%;object-fit:cover}
+.pv img{width:100%;height:100%;object-fit:contain}
 .info{display:flex;align-items:center;gap:var(--s3);padding:var(--s4)}
 .ic{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:var(--r2);background:var(--c1);color:#0b0d14;font:700 var(--fs-lg) var(--fd);overflow:hidden}
 .ic img{width:100%;height:100%;object-fit:cover}
+.ic.im{width:auto;max-width:112px;background:none}
+.ic.im img{display:block;height:100%;width:auto;max-width:112px;object-fit:contain;border-radius:var(--r2)}
 .m{min-width:0}
 .m h3{margin:0;font:700 1.0625rem/1.3 var(--fd);letter-spacing:-.01em}
 .m p{margin:0;color:var(--mut);font-size:var(--fs-sm)}
@@ -58,7 +60,7 @@ main{max-width:1132px;margin:0 auto;padding:0 var(--s4)}
 .rt svg{width:13px;height:13px;color:var(--fg)}
 .empty{color:var(--mut)}
 footer{width:min(1100px,calc(100% - 32px));margin:var(--s6) auto 0;border-top:1px solid var(--line);padding:var(--s5) 0 var(--s7);color:var(--mut);font-size:var(--fs-sm)}
-dialog{width:min(560px,100%);max-width:none;max-height:92vh;margin:auto auto 0;padding:0;border:1px solid var(--line);border-radius:var(--r3) var(--r3) 0 0;background:var(--sf);background:color-mix(in srgb,var(--sf) 94%,transparent);color:var(--fg);overflow:auto}
+dialog{width:min(560px,100%);max-width:none;max-height:92vh;margin:auto auto 0;padding:0;border:1px solid var(--line);border-radius:var(--r3) var(--r3) 0 0;background:var(--sf);color:var(--fg);overflow:auto}
 @media (min-width:700px){dialog{margin:auto;border-radius:var(--r3)}}
 dialog[open]{animation:sheet .3s cubic-bezier(.2,.8,.2,1)}
 html:has(dialog[open]){overflow:hidden}
@@ -66,9 +68,9 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 @keyframes sheet{from{transform:translateY(32px);opacity:0}}
 .dc{position:relative}
 .x{position:absolute;top:var(--s3);right:var(--s3);z-index:2;width:44px;padding:0}
-.dh{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--sf2);background:color-mix(in srgb,var(--c1) 16%,var(--sf2))}
+.dh{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--sf2);background:color-mix(in srgb,var(--c1) 16%,var(--sf2))}
 .dh svg{position:absolute;left:50%;top:12%;width:52%;height:auto;transform:translateX(-50%)}
-.dh img{width:100%;height:100%;object-fit:cover}
+.dh img{width:100%;height:100%;object-fit:contain}
 .db{padding:var(--s5)}
 .dt{display:flex;gap:var(--s3);align-items:center;margin-bottom:var(--s4)}
 .dt h2{margin:0;font:700 var(--fs-xl)/1.1 var(--fd);letter-spacing:-.02em}
@@ -89,7 +91,7 @@ textarea{min-height:100px;resize:vertical}
 .up input{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;opacity:0;cursor:pointer}
 .up svg{flex:none;width:20px;height:20px}
 .up.busy{opacity:.6}.up.busy::after{content:"Memproses…"}
-.pvw{width:100%;max-height:180px;object-fit:cover;border-radius:var(--r2)}
+.pvw{width:100%;max-height:180px;object-fit:contain;border-radius:var(--r2)}
 .hint{margin:var(--s3) 0 0;font-size:var(--fs-sm)}
 .nav{animation:navin .6s cubic-bezier(.2,.8,.2,1) backwards;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .nav.hide{transform:translateY(calc(-100% - 16px))}
@@ -170,7 +172,7 @@ function art(a,k){
   return '<svg viewBox="0 0 240 320" role="img" aria-label="Ilustrasi tampilan '+esc(a.name)+'"><rect x="40" y="10" width="160" height="300" rx="28" fill="#15171c"/><rect x="50" y="22" width="140" height="276" rx="20" fill="#1d2230"/><rect x="58" y="34" width="124" height="88" rx="14" fill="'+p[1]+'"/><circle cx="154" cy="62" r="20" fill="#fff" opacity=".28"/><rect x="66" y="92" width="60" height="8" rx="4" fill="#0b0d14" opacity=".35"/><rect x="66" y="106" width="40" height="6" rx="3" fill="#0b0d14" opacity=".25"/>'+body+'</svg>';
 }
 const shot=(a,k)=>a.shot?'<img data-shot src="'+esc(a.shot)+'" alt="Tampilan '+esc(a.name)+'">':art(a,k);
-function card(a,i){return '<article class="app fd" data-h="'+hv(a)+'"><div class="pv">'+shot(a,i)+'</div><div class="info"><span class="ic">'+icon(a)+'</span><div class="m"><h3><button class="nm" data-open="'+i+'">'+esc((a.name||'').trim())+'</button></h3><p>'+meta(a)+'</p></div></div>'+(canEdit?editBtn(i,esc((a.name||'').trim())):'')+'</article>'}
+function card(a,i){return '<article class="app fd" data-h="'+hv(a)+'"><div class="pv">'+shot(a,i)+'</div><div class="info"><span class="ic'+(a.icon?' im':'')+'">'+icon(a)+'</span><div class="m"><h3><button class="nm" data-open="'+i+'">'+esc((a.name||'').trim())+'</button></h3><p>'+meta(a)+'</p></div></div>'+(canEdit?editBtn(i,esc((a.name||'').trim())):'')+'</article>'}
 const upl=(f,i,has,l)=>'<label class="up">'+PLUS+' '+(has?'Ganti ':'Tambah ')+l+'<input type="file" accept="image/*" data-img="'+f+':'+i+'"></label>'+(has?'<img class="pvw" src="'+esc(has)+'" alt=""><button class="btn" data-rm="'+f+':'+i+'">Hapus '+l+'</button>':'');
 function ecard(a,i){
   const f=(k,l,x)=>'<input '+(x||'')+' data-k="'+k+'" data-i="'+i+'" value="'+esc(a[k])+'" placeholder="'+l+'" aria-label="'+l+'">';
@@ -211,7 +213,7 @@ function render(){
 function setF(c){flt=c;document.querySelectorAll('[data-cat]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cat===c)));$('.grid').innerHTML=gridHtml();paint();watch();[...$('.grid').children].forEach((c,i)=>{c.style.animationDelay=(i*70)+'ms';c.classList.add('pop')})}
 function openApp(i){
   const a=state.apps[i];if(!a)return;const L=safe(a.link);
-  dlg.innerHTML='<div class="dc" data-h="'+hv(a)+'"><button class="btn x" data-close aria-label="Tutup">'+X+'</button><div class="dh">'+shot(a,i)+'</div><div class="db"><div class="dt"><span class="ic">'+icon(a)+'</span><div><h2 id="dt">'+esc((a.name||'').trim())+'</h2><p>'+meta(a)+'</p></div></div>'+(a.tag?'<p class="tg">'+esc(a.tag)+'</p>':'')+para(a.desc)+(L?dl(L):'<p class="mut">Tautan unduhan belum ditambahkan.</p>')+(canEdit?'<button class="btn" data-edit="'+i+'">'+PENCIL+' Edit aplikasi</button>':'')+'</div></div>';
+  dlg.innerHTML='<div class="dc" data-h="'+hv(a)+'"><button class="btn x" data-close aria-label="Tutup">'+X+'</button><div class="dh">'+shot(a,i)+'</div><div class="db"><div class="dt"><span class="ic'+(a.icon?' im':'')+'">'+icon(a)+'</span><div><h2 id="dt">'+esc((a.name||'').trim())+'</h2><p>'+meta(a)+'</p></div></div>'+(a.tag?'<p class="tg">'+esc(a.tag)+'</p>':'')+para(a.desc)+(L?dl(L):'<p class="mut">Tautan unduhan belum ditambahkan.</p>')+(canEdit?'<button class="btn" data-edit="'+i+'">'+PENCIL+' Edit aplikasi</button>':'')+'</div></div>';
   paint(dlg);dlg.setAttribute('aria-labelledby','dt');if(!dlg.open)dlg.showModal();
 }
 function buildDoc(s){
